@@ -1,0 +1,23 @@
+.text-danger{
+    color: red;
+}
+.text-success{
+    color: green;
+}
+.text-primary{
+    color: blue;
+}
+.text-special{
+    font-style: italic;
+    font-weight: bold;
+}
+.select-wrapper{
+    display: flex;
+}
+.date-container{
+    display: inline-block;
+    margin-left: 10px;
+}
+.para{
+    margin-top: 5px;
+}

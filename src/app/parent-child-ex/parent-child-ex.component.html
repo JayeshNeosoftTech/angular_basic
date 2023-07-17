@@ -1,0 +1,8 @@
+<h2>{{communicationName}}</h2>
+<div class="from_wrapper">
+    <form action="#" method="post">
+        <input type="text" name="username" id="username" placeholder="Username" [(ngModel)]="username">
+        <input type="password" name="passwd" id="passwd" placeholder="Password" [(ngModel)]="password">
+        <input type="submit" value="Login" (click)="submit();">
+    </form>
+</div>

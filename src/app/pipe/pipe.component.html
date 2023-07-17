@@ -1,0 +1,39 @@
+<h3> ---DatePipe--- </h3> 
+<p> Bydefault Date: {{date}} </p>
+<p>'shortDate' : {{date | date: 'shortDate'}}</p>
+<p>'mediumDate' : {{date | date: 'mediumDate'}}</p>
+<p>'longDate' : {{date | date: 'longDate'}}</p>
+<p>'fullDate' : {{date | date: 'fullDate'}}</p>
+<p>'dd/MM/yyyy format' : {{date | date: 'dd/MM/yyyy'}}</p>
+
+<h3 style="margin-top: 10px;">---LowerCasePipe & UpperCasePipe---</h3>
+<p>'lowercase' : {{sentence | lowercase}}</p>
+<p>'uppercase' : {{sentence | uppercase}}</p>
+<p>'slice:' {{sentence | slice:6}}</p>
+
+<h3 style="margin-top: 10px;">---CurrencyPipe---</h3>
+<p>'Bydefault currency' : {{price | currency}}</p>
+<p>'currency: 'USD'' : {{price | currency: 'USD'}}</p>
+<p>'currency: 'INR' : {{price | currency: 'INR'}}</p>
+<p>'currency: 'EUR' : {{price | currency: 'EUR'}}</p>
+<p>'currency: 'AUD' : {{price | currency: 'AUD'}}</p>
+
+<h3 style="margin-top: 10px;">---DecimalPipe---</h3>
+<p>'number: '1.1-2' : {{val | number : '1.1-2'}}</p>
+<p>'number: '3.1-5' : {{val | number : '3.1-5'}}</p>
+
+<h3 style="margin-top: 10px;">---PercentPipe---</h3>
+<p>'percent: '2.1' : {{PerVal | percent : '2.1'}}</p>
+<p>'percent: '2.4-5' : {{PerVal | percent : '2.4-5'}}</p>
+
+<h3 style="margin-top: 10px;">---CustomPipe---</h3>
+<h4>Conversion Celcius to Fahrenheit</h4>
+<input type="text" name="cel" id="" placeholder="Enter celcius value..." [(ngModel)]="cel_val">
+<P>Fahrenheit: {{cel_val | celtofarhrenpipe}}</P>
+
+
+
+<h3 style="margin-top: 10px;">---JSONPipe---</h3>
+<p>JSON_Data: {{JSON_Data}}</p>
+<p>JSON_Data | json: {{JSON_Data | json}}</p>
+<p ngNonBindable>JSON_Data with ngNonBindable: {{ JSON_Data | json }}</p> 

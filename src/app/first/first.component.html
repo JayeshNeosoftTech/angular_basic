@@ -1,0 +1,121 @@
+<!-- // interpolation or data binding -->
+
+<p>first works!</p>
+<p>Name is {{ name }}</p>
+
+{{ 21233 + 34423 }}
+{{ 21233 * 34423 }}
+
+<hr/>
+<!-- // property binding -->
+
+<input type="text" [disabled]="isDisabled" [placeholder]="custom_placeholder"/>
+
+
+<!-- // event binding -->
+
+<div>
+    <button (click)="handleMe()">Click me</button>
+</div>
+
+<hr/>
+<!-- // Two - way binding -->
+<!-- // ngModel is used for two-way binding -->
+
+<label >
+    <b>Name:</b>
+    <input [(ngModel)]="productName" placeholder="name"/>
+</label>
+<p>Product Name is: {{productName}}</p>
+
+
+<!-- trial code -->
+<p>binding works!</p>
+<!-- Basic Data Binding -->
+<p>Applicant Name = {{application}}</p>
+<p>{{ 100 + 200 }}</p>
+<p>{{application.length}}</p>
+
+<!-- Property Binding -->
+<input type='text' id='a1' value='Hi everyone' [disabled]='isDisabled' />
+
+<!-- Class and Style Binding -->
+<h2 [class]="newClass">SCTPL1</h2>
+<h2 [class.text-danger]="hasError">SCTPL3</h2>
+<h2 [ngClass]="messageClasses">Message</h2>
+
+<h2 [style.color]="hasError ? 'red' : 'green'">Style Binding 2</h2>
+<h2 [style.color]="highlightColor">Style Binding 3</h2>
+<h2 [ngStyle]="titleStyles">Style Binding 4</h2>
+
+<!-- Event Binding -->
+<button (click)="myClickFunction($event)">Click Me</button>
+
+<!-- Two way binding -->
+<br/><br/>
+
+<input type="text" [(ngModel)]='typeValue' />
+<p>{{typeValue}}</p>
+<button (click)="updateValue()" class="btn btn-success">Update</button>
+
+<hr>
+<p>{{mydate}}</p>
+
+<!-- Structural Directives -->
+<h2>------ Structural Directives Examples ------</h2>
+<!-- ngIf example -->
+<div *ngIf="isAvailable else elseBlock">
+    <p>Data is available</p>
+</div>
+<ng-template #elseBlock>
+    <p>Data is not available</p>
+</ng-template>
+
+<!-- ngFor example -->
+<h3>Select Months</h3>
+<select [(ngModel)]="monthVal">
+    <option *ngFor="let month of months" value="{{month}}">{{ month }}</option>
+</select>
+<p>Selected month is: {{monthVal}}</p>
+
+<!-- ngIf Jayesh Example -->
+<h2>---- if and for directives ----</h2>
+<select [(ngModel)]="selectVal">
+    <option *ngFor="let month of months" value="{{month}}">{{ month }}</option>
+</select>
+<div *ngIf='(selectVal=="Feb") else notSelect' class="date-container">
+    <select [(ngModel)]="selectDate">yt
+        <option *ngFor="let date of dates" value="{{date}}">{{ date }}</option>
+    </select>
+    <input type="submit" value="Submit" [(ngModel)]="submitBtn" (click)="count= 1" style="margin-left: 10px">
+</div>
+    <p *ngIf="(count > 0) else para2">You are selected <b> {{selectDate}} {{selectVal}} 2023 </b>....</p>
+    <ng-template #notSelect>
+        <p class="text-danger para">select proper date!!!!</p>
+    </ng-template>
+    <ng-template #para2>
+        <p class="text-danger">Please select day!!!</p>
+    </ng-template>
+
+
+<!-- Printing object data in table format -->
+<table>
+    <thead>
+        <tr>
+            <td>Sr No.</td>
+            <td>Roll No.</td>
+            <td>Student Name</td>
+            <td>Class</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sdetail of sDetails; index as i">
+            <td>{{i+1}}</td>
+            <td>{{sdetail.rNo}}</td>
+            <td>{{sdetail.name}}</td>
+            <td>{{sdetail.className}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>

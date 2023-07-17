@@ -1,0 +1,17 @@
+<div class="component-wrapper">
+    <header>
+        <ul class="component-menu">
+            <li (click)="comIndex = 1">Parent-Child</li>
+            <li (click)="comIndex = 2">Child-Parent</li>
+            <li (click)="comIndex = 3">Siblings</li>
+        </ul>
+    </header>
+    <main>
+        <div [ngSwitch]="comIndex">
+            <div *ngSwitchCase="1"> <app-parent-child-ex [communicationName]="'Parent Child'" (uname)="uname($event)"></app-parent-child-ex> </div>
+            <div *ngSwitchCase="2"> </div>
+            <div *ngSwitchCase="3">  </div>
+            <div *ngSwitchDefault=""> <h2>Component Communication</h2> </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,59 @@
+<div class="container form-wrapper">
+    <form class="w-50 bg-dark text-light mx-auto mt-5 px-4 py-2 rounded-3" #loginform="ngForm" (ngSubmit)="submit(loginform,firstname, lastname, username, passw)">
+        <h3 class="text-light text-center bg-dark my-2">Sign Up</h3>
+        <div class="form-group my-2">
+            <label for="fname">First Name<sup class="text-danger">*</sup></label>
+            <input [(ngModel)]="fnameval" #firstname="ngModel" class="form-control" type="text" name="fname" id="" placeholder="Enter first name" minlength="2" maxlength="10" required ngModel>
+            <p *ngIf="firstname.touched" class="m-0">
+                <span class="text-danger" *ngIf="firstname.errors?.['required'] else elseBlockfname">This field is mandatory!!!</span>
+                <ng-template #elseBlockfname>
+                    <span class="text-danger" *ngIf="typeOf(fnameval) else elseMinval">Enter correct name!!!</span>
+                </ng-template>
+                <ng-template #elseMinval>
+                    <span class="text-danger" *ngIf="firstname.errors?.['required'] || firstname.errors?.['minlength']">Enter minimum 2 character!!!</span>
+                </ng-template>
+            </p>
+        </div>
+        <div class="form-group my-2">
+            <label for="lname">Last Name<sup class="text-danger">*</sup></label>
+            <input #lastname="ngModel" class="form-control" type="text" name="lname" id="" minlength="2" maxlength="12" required placeholder="Enter last name" ngModel>
+            <p *ngIf="lastname.touched" class="m-0">
+                <span class="text-danger" *ngIf="lastname.errors?.['required'] else  elseBlocklname">This field is mandatory!!!</span>
+                <ng-template #elseBlocklname>
+                    <span class="text-danger" *ngIf="typeOf(lastname.value) else elseMinval">Enter correct name!!!</span>
+                </ng-template>
+                <ng-template #elseMinval>
+                    <span class="text-danger" *ngIf="lastname.errors?.['required'] || lastname.errors?.['minlength']">Enter minimum 2 character!!!</span>
+                </ng-template>
+            </p>
+        </div>
+        <div class="form-group my-2">
+            <label for="uname">Username<sup class="text-danger">*</sup></label>
+            <input #username="ngModel" class="form-control" type="text" name="uname" id="" minlength="2" maxlength="8" required placeholder="Enter username" ngModel>
+            <p *ngIf="username.touched" class="m-0">
+                <span class="text-danger" *ngIf="username.errors?.['required'] else elseBlockuname">This field is mandatory!!!</span>
+
+                <ng-template #elseBlockuname>
+                    <span class="text-danger" *ngIf="typeOf(username.value) else elseMinval">Enter correct name!!!</span>
+                </ng-template>
+                <ng-template #elseMinval>
+                    <span class="text-danger" *ngIf="username.errors?.['required'] || username.errors?.['minlength']">Enter minimum 2 character!!!</span>
+                </ng-template>
+            </p>
+        </div>
+        <div class="form-group my-2">
+            <label for="pass">Password<sup class="text-danger">*</sup></label>
+            <input #passw="ngModel" class="form-control" type="password" name="pass" id="" minlength="8" maxlength="15" required placeholder="Enter password" ngModel>
+            <p *ngIf="passw.touched" class="m-0">
+                <span class="text-danger" *ngIf="passw.errors?.['required'] else elseMinval">This field is mandatory!!!</span>
+
+                <ng-template #elseMinval>
+                    <span class="text-danger" *ngIf="passw.errors?.['required'] || passw.errors?.['minlength']">Enter minimum 8 character!!!</span>
+                </ng-template>
+            </p>
+        </div>
+        <div class="mx-auto my-4 w-25">
+            <button class="btn btn-success w-100" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
